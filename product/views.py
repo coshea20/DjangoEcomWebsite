@@ -27,3 +27,5 @@ class ProductDetail(APIView):
 
 
 
+
+

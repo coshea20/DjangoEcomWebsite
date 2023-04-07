@@ -13,7 +13,7 @@
 
     <div class="columns is-multiline">
       <div class="column is-12">
-        <h2 class="is-size-2 has-text-centered">Latest Products</h2>
+        <h2 class="is-size-2 has-text-centered">Latest Cars in</h2>
       </div>
 
       <div class="column is-3" v-for="product in latestProducts" v-bind:key="product.id">
@@ -46,10 +46,15 @@ export default {
   },
   mounted() {
     this.getLatestProducts()
+
+    document.title = 'Home | MotorMania'
   },
   methods: {
-    getLatestProducts() {
-      axios
+    async getLatestProducts() {
+      this.$store.commit('setIsLoading', true)
+
+
+      await axios
         .get('/api/v1/latest-products/')
         .then(response => {
           this.latestProducts = response.data
@@ -58,6 +63,8 @@ export default {
           console.log(error)
         })
 
+
+      this.$store.commit('setIsLoading', false)
     }
   }
 }
