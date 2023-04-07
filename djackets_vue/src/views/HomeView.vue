@@ -1,8 +1,8 @@
 <template>
   <div class="homeview">
-    <section class="hero is-medium is-dark mt-6">
+    <section class="hero is-medium is-dark mb-6">
       <div class="hero-body has-text-centered">
-        <p class="title mt-6">
+        <p class="title mb-6">
           Welcome to MotorMania
         </p>
         <p class="subtitle">
@@ -11,14 +11,14 @@
       </div>
     </section>
 
-    <div class="column is-multiline">
+    <div class="columns is-multiline">
       <div class="column is-12">
-        <h2 class="is-size-2 has text-centered">Latest Products</h2>
+        <h2 class="is-size-2 has-text-centered">Latest Products</h2>
       </div>
 
       <div class="column is-3" v-for="product in latestProducts" v-bind:key="product.id">
           <div class="box">
-            <figure class="image mt-4">
+            <figure class="image mb-4">
               <img :src="product.get_thumbnail">
             </figure>
 
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-  .image{
+  .image {
     margin-top: -1.25rem;
     margin-left: -1.25rem;
     margin-right: -1.25rem;

@@ -6,7 +6,7 @@ import Product from '../views/Product.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'HomeView',
     component: HomeView
   },
   {
