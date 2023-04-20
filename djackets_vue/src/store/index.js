@@ -18,6 +18,14 @@ export default createStore({
         //This allows the cart information to persist across page refreshes and sessions.
         localStorage.setItem('cart', JSON.stringify(state.cart))
       }
+
+      if (localStorage.getItem('tokent')) {
+        state.token = localStorage.getItem('token')
+        state.isAuthenticated = true
+      } else {
+        state.token = ''
+        state.isAuthenticated = false
+      }
     },
     addToCart(state, item) {
       //This code filters the state.cart.items array to find if any item with the
@@ -42,7 +50,15 @@ export default createStore({
     //The value of isLoading is set to the value of status passed in as the second argument.
     setIsLoading(state, status) {
       state.isLoading = status
-    }  
+    },
+    setToken(state, token) {
+        state.token = token
+        state.isAuthenticated = true
+    },
+    removeToken(state, token) {
+        state.token = ''
+        state.isAuthenticated = false
+    },
 
   },
   actions: {
