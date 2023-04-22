@@ -17,13 +17,13 @@
                         </tr>
                     </thead>
 
-                    <body>
+                    <tbody>
                         <CartItem 
                             v-for="item in cart.items"
                             v-bind:key="item.product.id"
                             v-bind:initialItem="item"
                             v-on:removeFromCart="removeFromCart" />
-                    </body>
+                    </tbody>
                 </table>
 
                 <p v-else>You don't have any products in your cart....</p>
